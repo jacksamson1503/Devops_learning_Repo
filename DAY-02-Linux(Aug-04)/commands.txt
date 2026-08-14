@@ -1,0 +1,87 @@
+TOPIC -7 
+USER’S and GROUP’S: 
+Sudo adduser -m samson – creating an new user 
+Sudo passwd samson – Reset an password 
+Sudo userdel -r samson – Delete an user 
+Sudo groupadd developers – Create an group named as developers 
+Sudo usermod -aG developers samson – adding an user to the group 
+Id username – check the all users 
+Groups samson – verify the users added to group or not 
+Sudo gpasswd -d samson developers – removing the user from the group 
+Sudo groupdel developers – Delecting the group  
+Cd /home – change to root directory 
+Ls /home – see the created users 
+Cat /etc/passwd – List all the users 
+Cat /etc/group -List all the groups  
+Getent group developers – how many users ther we can check 
+Grep developers  /etc/group 
+
+
+TOPIC -8 
+FILE PERMISSON 
+Owner Group Others (check in the notes) 
+Chown – change an owner in the file  
+Sudo chown sam report.txt 
+eg: -rw-r--r-- 1 sam developers 0 Aug 4 report.txt 
+Chgrp – change an group in the file 
+Sudo chgrp developers report.txt 
+Eg:  -rw-r--r-- 1 sam developers 0 Aug 4 report.txt 
+
+
+TOPIC-9 
+PROCESS MANAGEMENT: 
+Ps – Shows only processes running in your current terminal 
+
+Eg:  
+PID -Process ID  
+TTY- Terminal 
+TIME – This is CPU time used by the process. 
+CMD – linux sheel (su and bash is high because is changed the user more times) 
+Ps -ef shows every process running on the linux system 
+UID – User who stared the process 
+PID – Process ID (unique ID) 
+PPID -Parent process ID 
+C – CPU usage 
+
+Top – Is to monitor the server 
+Main in the top output 
+PID    %CPU    %MEM    COMMAND 
+PID → Which process?  
+%CPU → CPU usage  
+%MEM → RAM usage  
+COMMAND → Program name 
+
+Scenario : top – java is high, ps -ef |grep java, kill the id of java(kill 2456) 
+ps   → View processes 
+top  → Monitor processes 
+kill → Stop processes 
+kill -p id – same as kill 
+pkill (process name) -stop the process 
+killall (process name) – stop all the process named as the given name 
+
+
+TOPIC -10 
+PACKAGE MANAGEMENT: 
+sudo apt update – first command after a new server or before installing software.Refreshes the 
+package list. 
+Sudo apt upgrade – update all installed software to the latest version. 
+Sudo apt install <name> - install a new software(Nginx,Git,Docker,Tree,etc..) 
+Sudo apt remove nginx – remove the software but keep its configuration files. 
+Sudo apt purge nginx – completely remove software,including configuration files. 
+Sudo apt autoremove – Clean up insed dependemcy packages after uninstalling software. 
+apt search docker – search if a package is available 
+apt show docker – view package details(version,description,depencies). 
+
+
+TOPIC -11 
+SYSTEM SERVICES: 
+Systemctl status nginx – check whether nginx is running 
+Systemctl start nginx – start the service 
+Systemctl stop nginx -stop the service 
+Systemctl restart nginx – restart the service after changes 
+Systemctl reload nginx – reload configuration without a full restart 
+Systemctl enable nginx – start automatically after reboot 
+Systemctl disable nginx – don’t start automatically after reboot 
+Systemctl is-active nginx – check if the service is active or not active 
+Sysemctl is-enabled nginx – check if auto-start is enabled 
+Systemctl list-units –type=services   - List the running services 

@@ -1,0 +1,170 @@
+Operating system(OS)-An Operating system is an software that manages your computer’s 
+hardware and allows applications to run. 
+OS Examples – Linux,Windows,Macos 
+Linux – Linux is an free open source operating system based on the linux kernel.Maily used for 
+servers,cloud platfomrs, docker, android,and Kubernetes. 
+Why linux maily used in all companies – Stable,fast,secure,free,Higly customizable,excellent for 
+automation. 
+Linux Kernel – It is an core of an operating system.it acts as an bridege between the hardware 
+and software. 
+Ex: 
+SHELL – It is an program that accepts your commands and passes them to the kernel. 
+TERMINAL – It is an application where you type commands. 
+LINUX DISTRIBUTIONS – A linux distributions includes the linux kernel plus software and tools. 
+Comman distributes – ubuntu, Debian, red hat enterprise linux, rocky linux, almalinux, fedora.
+
+1./home -There is where normal users keep their personal files. 
+Eg: /home/jack 
+/home/samson 
+/home/ishu 
+Each users can work in their own home directory. 
+
+2./root-There is the home dicrectory of the root user(administrator) 
+Normal user - /home/jack 
+Admin user - /root 
+
+3./etc – It stores system configuration’s file. 
+Eg: user accounts ,password settings ,network configurations ,SSH configurations ,Hostname, 
+DNS settings.  
+/etc/passwd 
+/etc/hosts 
+/etc/ssh/ 
+/etc/fstab 
+
+4./var – it stores files that change frequently. 
+Eg: Logs,Mail,Cache,Temp data 
+/var -log,cache,mail,spool 
+/var/log/syslog 
+/var/log/auth.log 
+
+5. /usr -Most installed software is stored here. 
+Eg:Applications,Libraries,Documentation,Commands 
+When you install packages with apt, many files are placed under /usr. 
+
+6. /bin – This directory contains essential needed by all users. 
+Eg: ls,cp,mv,cat,echo,pwd. 
+
+7. /sbin – Contains system admin commands. 
+Eg:Reboot,shutdown,fdisk,mkfs,fsck 
+
+8. /tmp – This directory stores the temporary files. 
+
+9. /boot – Contains files required to boot linux. 
+Eg: Linux Kernel,Bootloader files (GRUB),initial RAM filesystem. 
+If these files are damaged,the system may fail to start 
+
+10. /dev – stands for devices. In linux hardware devices are repredented as files. 
+Eg: Hard disks,USB Drivers, Keyboards, Printers 
+/dev/sda 
+/dev/sdb 
+/dev/null 
+
+11. /proc -These is an virtual filesystem.it doesn’t store real files on disk . instaed,it provides 
+information about: Running processes, CPU, Memory, Kernel 
+Eg: /proc/cpuinfo 
+/proc/meminfo 
+
+12. /opt – Used for optional or third-party software. 
+Eg: /opt/google 
+/opt/custom-app 
+
+
+TOPIC -3 
+Linux commands: 
+pwd – Print working directory 
+ls – stands for list show the files and folder 
+ls -l -> show the files and folder with full information(permission’s) 
+ls -a -> show the hiddern files and folder 
+ls -la ->show the hiddern files and folder with full information  
+cd -change directory 
+cd .. -Go back one directory 
+cd ~ - Direct home directory return 
+cd / - Direct Root directory return 
+eg: cd /etc/ssh 
+cd /var/log 
+mkdir test – create an new directory or folder 
+mkdir  AWS Docker Linux – create multi directory at the same time 
+touch test.txt – create an file with the empty 
+touch README.md  Dockerfile  app.py -create an multiple file in one click 
+
+eg: touch nginx.conf 
+cp – copies files or directory 
+cp notes.txt backup.txt (copy the notes.txt to backup.txt file) 
+cp -r project project_bakup (copy an directory we will use -r) 
+eg: cp /etc/hosts  /etc/hosts_backup 
+mv – moves files or directory 
+mv notes.txt documents/ (moved the notes.txt file to documenst folder) 
+mv file2.txt newfiletxt – (rename the old file name to new file name) 
+eg : mv app.log archive/ 
+rm – Delete files 
+rm notes.txt -deleting the file 
+rm -f – (Delete directory with files) 
+rmdir – (delete the empty directory)
+
+
+TOPIC -4 
+FILE VIEWING COMMANDS 
+Cat – is used to view the inside content of the file 
+Cat file1.txt file2.txt – it will show the both files one by one after. 
+
+Eg : cat /etc/hostname 
+Less – is used to read large files by page by page 
+Less /var/log/syslog 
+
+↑ ↓  - Move one line 
+Space – next page 
+b – previous page 
+q – quit 
+
+more – same to less only 
+head – show the first 10 lines of the files 
+head head.txt – show the first ten lines in an file 
+head -5 head.txt -show the first 5 lines in an file 
+
+eg: head /var/log/syslog 
+tail – show the last ten lines in an file 
+tail -5 head.txt – show the last ten lines in an file 
+tail -f show the flive files 
+eg ; tail -f /var/log/nginx/access.log 
+
+
+TOPIC -5 
+REDIRECTION AND PIPES: 
+echo – is used to display the text on the terminal 
+echo “hello” -output hello 
+eg: 
+echo “deploying an nginx server” 
+echo “Bulding an application” 
+echo “deployment completed” 
+(Overwrite redirection) 
+Echo “linux “ > notes.txt – These will rewrite the file.old data will remove 
+Echo “linux” >> notes.txt -these will add the new data.old data will wont delete 
+| - sends an output of one command as the input to the another command 
+Eg: ls | less 
+
+Cat notes.txt | less 
+Tee – display an output on the screen and writes it to a file at the same time 
+Echo “linux”  | tee notes.txt -these will rewrite the file.old data will remove 
+Echo “linux” | tee -a notes.txt - these will add the new data.old data will wont delete 
+Eg: df -h  | tee disk_report.txt (you will see the usage and same output saved in the disk_report.txt file) 
+
+
+TOPIC -6 
+SEARCHING COMMAND: 
+Find – searches for the files and directories based on name,tyoe,size,permission,data 
+Find /home/jack -name notes.txt -it will find the notes.txt file 
+Find / -name nginx.conf 
+Find . -name “*.txt” 
+Find . -name type d 
+Find . -name type f 
+Eg: find /etc -name sshd_config 
+Locate – also searches the files,but its’s much faste than find 
+Locate nginx.conf (anser: /etc/nginx/nginx.conf) 
+Which - It tells you where an executable command is located. 
+Which ls – (anser   /usr/bin/ls) 
+Which docker – (answer /usr/bin/docker) 
+Whereis -provide more info than which.includes binary,sources files,manual pages 
+Whereis docker –(answer /usr/bin/ls /usr/share/man/man1/ls.1.gz) 
+grep – searches the specific text inside the files 
+grep error users.txt 
+grep -I error users.txt 

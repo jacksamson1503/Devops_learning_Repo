@@ -1,0 +1,125 @@
+TOPIC -12 
+DISK AND STORAGE MANAGEMENT: 
+df -h – it will check the entire system of space 
+du -sh – it will check the folder size and particular folder size 
+du -sh /* - it will find the large directory 
+lsblk – it will check weather its was in ssd,hdd,usb or external hard disk 
+mount – an pendrive is connect to your laptop.that pendrive files want to go in one path.for 
+that cae it will use 
+umount – after the use case pendrive we will remove so we will use the umount 
+steps 
+lsblk – it will used to check disk 
+sudo fdisk -l -it will used to view full detaild info of partion 
+fdisk – it will used to create an new partion 
+
+
+TOPIC -13 
+ARCHIVE AND COMPRESSION: 
+Archive – combains multiple files into one file 
+Compression – reduce the file size. 
+
+Step1: practice folder 
+Create archive ( tar -cvf practice_backup.tar practice) 
+Step2: compress the created tar file 
+Compress them ( gzip practice_backup.tar)
+ 
+Now unzip (gunzip practice_backup.tar.gz) 
+After unzipped now extract the file ( tar -xvf practice_backup.tar) 
+ 
+ 
+ 
+ 
+ 
+TOPIC -14 
+CRON JOB: 
+  Cron job is used to automate repetitive tasks in linux.it executes commands or scripts 
+automatically at a scheduled time.
+ 
+Format ( * * * * *) 
+Minutes hour date month day 
+
+Eg: Run backup every Friday at 11.30pm 
+Output: 30 23 * * 5 
+30 – minutes 
+23 – 11PM 
+*- every date 
+*-Every month 
+*- 5 
+
+Sunday-0 
+Monday-1 
+Tuesday-2 
+Wednesday-3 
+Thursday -4 
+Friday-5 
+Saturday – 6
+ 
+Steps create an cronjob (crontab -e) 
+***** echo “hello jack” >> /home/jack/corn.txt 
+ctrl + o 
+Enter 
+Ctrl+x 
+
+Crontab -l  list the created jobs in crontab 
+
+Eg: Every day at 11:30 PM, back up the practical folder into /home/jack/backups 
+30 23 * * * tar -cvf /home/jack/backups/pratical_backup.tar /home/jack/pratical 
+tar -cvf <where_to_save_the_backup.tar> <which_folder_to_backup> 
+
+
+TOPIC -15 
+NETWOKING CONCEPT: 
+Ip a –(Shows all network interfaces and IP addresses. Check the server IP address. Check 
+whether the network interface is UP or DOWN. 
+
+Lo – it will talk inside the ubuntu like an mirror 
+
+Enpos3 – linux ip and default gateway it will show 
+
+Hostname -I 
+Show ip address of the system
+ 
+Ip route  
+Display the routing table and default gateway. 
+
+Ping  
+checks whether another server or website is reachable. 
+Ping google.com 
+
+Curl 
+Sends an HTTP/HTTPS request to a website or API and displays the response. 
+Check whether a web application or API is responding. 
+
+Wget 
+Downloads files from the internet 
+wget https://example.com/file.zip 
+
+ss -tuln 
+Displays listening ports and active network services. 
+Check the port also 
+
+Netstat -tuln 
+Same as ss.but (netstat) is slower 
+
+Nslookup 
+Checks the domain ip  
+
+Dig 
+Same as nslookup.but here give full info 
+
+Traceroute 
+Is used to find in which path my data is going to the server 
+
+Ssh 
+Securely connect to the server 
+Ssh name@ip 
+Ssh -I private.pem @ubuntu192.68.1.68 
+
+
+TOPIC -16 
+Environment Variable 
+An environment variable is a variable that stores system or user information, such as the 
+username, home directory, shell, or command search path. Applications and Linux use these 
+variables during execution. 
+Export COMPANY=abc 
+Echo $COMPANY 

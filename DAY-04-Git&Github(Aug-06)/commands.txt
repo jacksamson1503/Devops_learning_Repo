@@ -1,0 +1,201 @@
+GitHub Notes (DevOps) 
+
+1. GitHub Workflow 
+Create a New Repository 
+Create a repository on GitHub 
+Clone the repository to your local machine. 
+git clone https://github.com/username/repository.git
+
+Go inside the project. 
+cd repository 
+
+Create a new feature branch. 
+git checkout -b feature/login  
+
+Check the current branch. 
+git branch 
+Output: 
+* feature/login 
+Now start coding. 
+
+Example: 
+index.html 
+style.css 
+script.js 
+
+Check modified files. 
+git status 
+
+Stage the changes. 
+git add . 
+Commit the changes. 
+git commit -m "Added Login Page" 
+Push the feature branch. 
+git push origin feature/login 
+
+Now go to GitHub. 
+Create a Pull Request (PR). 
+After the manager reviews and approves the PR, 
+
+Merge: 
+feature/login 
+│ 
+▼ 
+main 
+Delete the feature branch after merging.
+
+
+GIT FETCH 
+Before running git pull, use git fetch to check if there are any new commits on the remote 
+repository. 
+
+COMMAND – git fetch 
+Verify remote branches – git branch -r 
+
+GIT MERGE 
+Combines one branch into another branch. 
+
+STEPS 
+Switch to main – git checkout main 
+Merge feature branch. – git merge feature/login 
+Now main contains all commits from feature/login.
+
+GIT DIFF 
+Shows the difference between files or commits. 
+Use Case 
+Before committing, check exactly what has changed. 
+STEPS 
+Check – git diff 
+Compare two commits – git diff commit1 commit2 
+Compare two branches – git diff main feature/login 
+Compare a specific file – git diff index.html 
+
+DevOps Use Case 
+If a Jenkins pipeline fails after a code change, use git diff to identify what changed instead of 
+checking every file manually. 
+
+GIT STASH 
+Temporarily saves uncommitted changes and cleans the working directory. 
+Use Case 
+Suppose you're working on a feature branch and suddenly production goes down. 
+Instead of making an incomplete commit, 
+STEPS: 
+Save your work -git stash 
+Now fix the production issue 
+Restore your changes -git stash pop 
+
+
+GIT REMOTE 
+Verify that you're connected to the correct GitHub repository before pushing. 
+STEPS: 
+Show the remote name – git remote 
+Show the remote URL – git remote -v 
+More details – git remote show origin 
+Fetch URL  
+Push URL  
+Default Branch  
+Tracking Branches 
+GIT REVERT 
+Creates a new commit that reverses the changes made by a previous commit. 
+Commands  
+Find Commit ID – git log - - oneline 
+Revert the commit – git revert <commit-id> 
+Rules: Already pushed the file use git revert
+
+
+GIT RESET 
+THREE: 
+Soft Reset 
+Mixed Reset 
+Hard Reset 
+
+Soft Reset 
+Wrong commit message. 
+
+Example: 
+git reset --soft HEAD~1 
+
+Now recommit. 
+git commit -m "Added Login Page" 
+
+Mixed Reset 
+Wrong files were committed. 
+git reset HEAD~1 
+Result: 
+• Commit removed  
+• Files remain  
+• Staging area cleared 
+
+Hard Reset 
+You want to completely discard local changes. 
+git reset --hard HEAD~1 
+Result: 
+• Commit removed  
+• Changes deleted  
+• Working directory reset 
+
+Important Rule 
+Not pushed: 
+git reset 
+
+Already pushed: 
+git revert 
+
+GIT REFLOG 
+Records every movement of HEAD. 
+(Commit) (Checkout) (Merge) (Reset) (Revert) 
+Scenario: you deleted the last commit use the steps 
+Command: git reflog 
+Recover lost commit: git reset –hard <commit -id> 
+
+GIT SHOW 
+Displays detailed information about a commit. 
+Commands: git show 
+Commit id: git log –oneline 
+Specific command: git show <commit-id> 
+
+Commit ID 
+Author 
+Date 
+Commit Message 
+Changed Files 
+Code Difference 
+
+GIT CHEERY-PICK 
+Copies a specific commit from one branch to another. 
+Use Case 
+A developer made 10 commits. 
+Only commit 9 contains the production bug fix. 
+Instead of merging all 10 commits, 
+copy only commit 9. 
+
+
+STEPS: 
+Find commit – git log - - oneline 
+Switch branch – git checkout main 
+Cherry pick – git cherry-pick<commit-id> 
+Push to main -git push origin main 
+
+Use git fetch 
+Before checking for the latest remote changes without updating your current branch. 
+
+Use git pull 
+To download and merge the latest changes into your current branch. 
+
+Use git revert 
+To safely undo a pushed commit. 
+
+Use git reset 
+To fix local commits before sharing them. 
+
+Use git stash 
+To temporarily save work when switching tasks. 
+
+Use git diff 
+To review code changes before committing. 
+
+Use git show 
+To inspect a commit in detail. 
+
+Use git cherry-pick 
+To move only one required commit to another branch. 
